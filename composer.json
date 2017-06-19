@@ -1,0 +1,39 @@
+{
+  "name": "silverware/google",
+  "type": "silverstripe-module",
+  "description": "SilverWare Google Module.",
+  "homepage": "https://github.com/praxisnetau/silverware-google",
+  "keywords": [
+    "silverware",
+    "social",
+    "google",
+    "silverstripe"
+  ],
+  "license": "BSD-3-Clause",
+  "authors": [
+    {
+      "name": "Colin Tucker",
+      "role": "Developer",
+      "email": "colin@praxis.net.au",
+      "homepage": "http://www.praxis.net.au"
+    }
+  ],
+  "require": {
+    "php": ">=5.6.0",
+    "silverware/silverware": "^1.0",
+    "silverware/social": "^1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "SilverWare\\Google\\": "src/"
+    }
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0.x-dev"
+    },
+    "installer-name": "silverware-google"
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}

@@ -127,8 +127,8 @@ class GoogleSharingButton extends SharingButton
         $fields->addFieldToTab(
             'Root.Style',
             FieldSection::create(
-                'GoogleSharingButtonStyle',
-                $this->i18n_singular_name(),
+                'ButtonStyle',
+                $this->fieldLabel('ButtonStyle'),
                 [
                     DropdownField::create(
                         'ButtonSize',
@@ -166,6 +166,7 @@ class GoogleSharingButton extends SharingButton
         
         $labels['ButtonSize'] = _t(__CLASS__ . '.BUTTONSIZE', 'Button size');
         $labels['ButtonAnnotation'] = _t(__CLASS__ . '.BUTTONANNOTATION', 'Button annotation');
+        $labels['ButtonStyle'] = _t(__CLASS__ . '.BUTTON', 'Button');
         
         // Answer Field Labels:
         

@@ -12,7 +12,7 @@ Page:
 
 SilverStripe\CMS\Controllers\ContentController:
   required_js:
-    - silverware-google/client/dist/js/bundle.js
+    - "silverware/google: client/dist/js/bundle.js"
 
 # Configure Site Configuration:
 

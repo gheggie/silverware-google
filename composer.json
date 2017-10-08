@@ -1,6 +1,6 @@
 {
   "name": "silverware/google",
-  "type": "silverstripe-module",
+  "type": "silverstripe-vendormodule",
   "description": "SilverWare Google Module.",
   "homepage": "https://github.com/praxisnetau/silverware-google",
   "keywords": [
@@ -32,7 +32,10 @@
     "branch-alias": {
       "dev-master": "1.0.x-dev"
     },
-    "installer-name": "silverware-google"
+    "expose": [
+      "admin/client/dist",
+      "client/dist"
+    ]
   },
   "minimum-stability": "dev",
   "prefer-stable": true

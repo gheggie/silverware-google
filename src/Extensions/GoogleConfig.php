@@ -23,6 +23,7 @@ use SilverStripe\Forms\FieldList;
 use SilverStripe\Forms\TextField;
 use SilverWare\Extensions\Config\ServicesConfig;
 use SilverWare\Forms\FieldSection;
+use SilverWare\Google\API\GoogleAPI;
 
 /**
  * An extension of the services config class which adds Google settings to site configuration.
@@ -161,12 +162,14 @@ class GoogleConfig extends ServicesConfig
     {
         $attributes = [];
         
-        if ($this->getSiteConfig()->GoogleAPILanguage) {
-            $attributes['data-google-api-lang'] = $this->getSiteConfig()->GoogleAPILanguage;
+        $api = GoogleAPI::singleton();
+        
+        if ($lang = $api->getAPILanguage()) {
+            $attributes['data-google-api-lang'] = $lang;
         }
         
-        if ($this->getSiteConfig()->GoogleAnalyticsEnabled) {
-            $attributes['data-google-tracking-id'] = $this->getSiteConfig()->GoogleAnalyticsTrackingID;
+        if ($api->isAnalyticsEnabled()) {
+            $attributes['data-google-tracking-id'] = $api->getAnalyticsTrackingID();
         }
         
         return $attributes;

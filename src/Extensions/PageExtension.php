@@ -20,6 +20,7 @@ namespace SilverWare\Google\Extensions;
 use SilverStripe\Core\Convert;
 use SilverStripe\Core\Extension;
 use SilverStripe\SiteConfig\SiteConfig;
+use SilverWare\Google\API\GoogleAPI;
 
 /**
  * An extension which adds Google features to pages.
@@ -46,7 +47,7 @@ class PageExtension extends Extension
      */
     public function MetaTags(&$tags)
     {
-        if ($code = SiteConfig::current_site_config()->GoogleVerificationCode) {
+        if ($code = GoogleAPI::singleton()->getVerificationCode()) {
             
             // Add New Line (if does not exist):
             

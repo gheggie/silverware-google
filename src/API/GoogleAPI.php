@@ -36,6 +36,32 @@ class GoogleAPI
     use Configurable;
     
     /**
+     * Answers the API key from site or YAML configuration.
+     *
+     * @return string
+     */
+    public function getAPIKey()
+    {
+        $key = SiteConfig::current_site_config()->GoogleAPIKey;
+        
+        if (!$key) {
+            $key = self::config()->api_key;
+        }
+        
+        return $key;
+    }
+    
+    /**
+     * Answers true if the receiver has an API key.
+     *
+     * @return boolean
+     */
+    public function hasAPIKey()
+    {
+        return (boolean) $this->getAPIKey();
+    }
+    
+    /**
      * Answers the API language from site or YAML configuration.
      *
      * @return string

@@ -43,6 +43,7 @@ class GoogleConfig extends ServicesConfig
      * @config
      */
     private static $db = [
+        'GoogleAPIKey' => 'Varchar(128)',
         'GoogleAPILanguage' => 'Varchar(8)',
         'GoogleVerificationCode' => 'Varchar(64)',
         'GoogleAnalyticsTrackingID' => 'Varchar(64)',
@@ -82,6 +83,15 @@ class GoogleConfig extends ServicesConfig
                     'GoogleAPIConfig',
                     $this->owner->fieldLabel('GoogleAPIConfig'),
                     [
+                        TextField::create(
+                            'GoogleAPIKey',
+                            $this->owner->fieldLabel('GoogleAPIKey')
+                        )->setRightTitle(
+                            _t(
+                                __CLASS__ . '.GOOGLEAPIKEYRIGHTTITLE',
+                                'Create credentials using the Google API Manager and paste the API key here.'
+                            )
+                        ),
                         DropdownField::create(
                             'GoogleAPILanguage',
                             $this->owner->fieldLabel('GoogleAPILanguage'),
@@ -133,6 +143,7 @@ class GoogleConfig extends ServicesConfig
         // Update Field Labels:
         
         $labels['Google'] = _t(__CLASS__ . '.GOOGLE', 'Google');
+        $labels['GoogleAPIKey'] = _t(__CLASS__ . '.GOOGLEAPIKEY', 'Google API Key');
         $labels['GoogleAPIConfig'] = _t(__CLASS__ . '.GOOGLEAPI', 'Google API');
         $labels['GoogleAPILanguage'] = _t(__CLASS__ . '.LANGUAGE', 'Language');
         $labels['GoogleAnalyticsConfig'] = _t(__CLASS__ . '.GOOGLEANALYTICS', 'Google Analytics');
@@ -164,6 +175,10 @@ class GoogleConfig extends ServicesConfig
         
         $api = GoogleAPI::singleton();
         
+        if ($key = $api->getAPIKey()) {
+            $attributes['data-google-api-key'] = $key;
+        }
+        
         if ($lang = $api->getAPILanguage()) {
             $attributes['data-google-api-lang'] = $lang;
         }
@@ -183,6 +198,23 @@ class GoogleConfig extends ServicesConfig
     public function getGoogleLanguageOptions()
     {
         return $this->owner->config()->google_languages;
+    }
+    
+    /**
+     * Answers a status message array for the CMS interface.
+     *
+     * @return string
+     */
+    public function getGoogleStatusMessage()
+    {
+        if (!GoogleAPI::singleton()->hasAPIKey()) {
+            
+            return _t(
+                __CLASS__ . '.GOOGLEAPIKEYMISSING',
+                'Google API Key has not been entered into site configuration.'
+            );
+            
+        }
     }
     
     /**

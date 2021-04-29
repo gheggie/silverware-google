@@ -2,7 +2,7 @@
     "name": "praxisnetau/silverware-google",
     "description": "Google module for SilverWare.",
     "type": "silverstripe-module",
-    "homepage": "https://bitbucket.org/praxisnetau/silverware-google",
+    "homepage": "https://github.com/praxisnetau/silverware-google",
     "keywords": ["silverstripe", "silverware", "google"],
     "license": "BSD-3-Clause",
     "authors": [
@@ -14,7 +14,7 @@
         }
     ],
     "require": {
-        "php": ">=5.3.3,<7",
+        "php": ">=5.3.3",
         "praxisnetau/silverware": "~1.0"
     },
     "extra": {

@@ -1,0 +1,27 @@
+SiteConfig:
+  extensions:
+    - GoogleConfig
+
+ContentController:
+  extensions:
+    - GoogleControllerExtension
+
+Page:
+  extensions:
+    - GoogleSiteVerificationExtension
+
+GoogleMapsComponent:
+  map_types:
+    roadmap: Roadmap
+    satellite: Satellite
+    hybrid: Hybrid
+    terrain: Terrain
+
+LeftAndMain:
+  extensions:
+    - GoogleLeftAndMainExtension
+  extra_requirements_css:
+    - silverware-google/css/cms/cms.css
+  extra_requirements_javascript:
+    - silverware-google/thirdparty/gmaps/gmaps.min.js
+    - silverware-google/javascript/cms/cms.js

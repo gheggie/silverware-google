@@ -1,0 +1,24 @@
+{
+    "name": "praxisnetau/silverware-google",
+    "description": "Google module for SilverWare.",
+    "type": "silverstripe-module",
+    "homepage": "https://bitbucket.org/praxisnetau/silverware-google",
+    "keywords": ["silverstripe", "silverware", "google"],
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Colin Tucker",
+            "role": "Developer",
+            "email": "colin@praxis.net.au",
+            "homepage": "http://www.praxis.net.au"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3,<7",
+        "praxisnetau/silverware": "~1.0"
+    },
+    "extra": {
+        "installer-name": "silverware-google"
+    },
+    "target-dir": "silverware-google"
+}

@@ -1,0 +1,18 @@
+/* Google Maps Component CSS Definitions:
+===================================================================================================================== */
+
+.googlemapscomponent > div.content {
+  position: relative;
+}
+
+.googlemapscomponent .google-map-wrapper {
+  width: 100%;
+  padding-bottom: 100%;
+  position: relative;
+}
+
+.googlemapscomponent .google-map-wrapper .google-map {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
